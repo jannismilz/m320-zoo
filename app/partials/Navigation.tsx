@@ -1,11 +1,14 @@
-import Logo from "../components/Logo";
-import ProfileLink from "../components/ProfileLink";
+import NavItem from "../components/NavItem";
 
 export default function Navigation() {
   return (
-    <nav className="flex justify-between bg-red-400 p-5">
-      <Logo />
-      <ProfileLink avatarUrl="https://picsum.photos/60/60" username="John Doe" />
+    <nav>
+      <ul className="fixed bottom-0 m-auto flex min-w-full max-w-sm justify-around bg-red-400 p-5">
+        <NavItem title="Test1" route="/" />
+        <NavItem title="Test2" route="/" />
+        <NavItem title="Test3" route="/" />
+        <NavItem title="Test4" route="/" />
+      </ul>
     </nav>
   );
 }
