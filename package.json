@@ -10,6 +10,7 @@
     "format": "npx prettier . --write"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18"
