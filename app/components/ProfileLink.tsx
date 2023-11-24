@@ -8,7 +8,8 @@ export default function ProfileLink({
   avatarUrl: string;
   username: string;
 }) {
-  return (
+  // TODO: Check if logged in
+  return true ? (
     <div className="flex items-center gap-2">
       <Image
         className="rounded-full"
@@ -20,5 +21,7 @@ export default function ProfileLink({
       <span className="hidden md:inline-block">{username}</span>
       <ChevronDownIcon height={15} width={15} />
     </div>
+  ) : (
+    <div>Login</div>
   );
 }
