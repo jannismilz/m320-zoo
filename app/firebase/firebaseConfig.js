@@ -13,12 +13,14 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export default app;
 
 // Initialize Firebase Authentication and get a reference to the service
-export const auth = getAuth(app);
+const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 
 // Initialize Cloud Firestore and get a reference to the service
-export const db = getFirestore(app);
+const db = getFirestore(app);
+
+export { auth, provider, db };
+export default app;
