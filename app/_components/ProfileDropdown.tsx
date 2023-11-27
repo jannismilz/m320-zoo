@@ -19,8 +19,6 @@ export default function ProfileDropdown({
         if (!isOpen) return;
         const handleClick = (event: any) => {
             if (dropdown.current && !dropdown.current?.contains(event.target)) {
-                console.log("hey");
-
                 setIsOpen(false);
             }
         };
