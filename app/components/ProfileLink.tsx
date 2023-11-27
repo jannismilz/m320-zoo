@@ -31,7 +31,7 @@ export default function ProfileLink() {
                 <ChevronDownIcon height={15} width={15} />
             </div>
             <div className="relative">
-                <ProfileDropdown isOpen={isOpen} />
+                <ProfileDropdown isOpen={isOpen} setIsOpen={setIsOpen} />
             </div>
         </div>
     ) : (
