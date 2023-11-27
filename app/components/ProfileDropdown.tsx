@@ -10,10 +10,16 @@ export default function ProfileDropdown({ isOpen }: { isOpen: boolean }) {
         <div
             className={`${
                 isOpen ? "block" : "hidden"
-            } absolute -bottom-20 right-0 flex w-52 flex-col bg-yellow-400`}
+            } absolute right-0 top-full mt-1 flex w-52 flex-col bg-yellow-400`}
         >
             <Link className="w-full px-5 py-1.5 text-start hover:bg-gray-400" href="/me">
                 Profile
+            </Link>
+            <Link
+                className="w-full px-5 py-1.5 text-start hover:bg-gray-400"
+                href="/mytickets"
+            >
+                My tickets
             </Link>
             <button
                 className="w-full px-5 py-1.5 text-start hover:bg-gray-400"
