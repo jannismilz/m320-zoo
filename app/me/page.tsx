@@ -1,3 +1,3 @@
 export default function Me() {
-    return <main>Hello</main>;
+    return <main>Me</main>;
 }

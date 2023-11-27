@@ -4,7 +4,6 @@ import { createContext, useState } from "react";
 import { auth, db } from "../_firebase/firebaseConfig";
 import { User } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import firebase from "firebase/compat/app";
 import { TAuthContextProps, TUser } from "../_types/types";
 
 const defaultValue: TAuthContextProps = {
