@@ -37,6 +37,7 @@ export function AuthProvider({
             } else {
                 userDataObj["created_at"] = Date.now();
                 setDoc(doc(db, "users", user.uid), userDataObj, { merge: true });
+                // TODO: Send welcome email
             }
         } else {
             setUser(null);
