@@ -16,6 +16,18 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
+export const getCurrentUser = () => {
+    return new Promise((resolve, reject) => {
+        if (auth.currentUser) {
+            resolve(auth.currentUser);
+        }
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            unsubscribe();
+            resolve(user);
+        }, reject);
+    });
+};
+
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 
