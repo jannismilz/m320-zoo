@@ -1,10 +1,11 @@
 "use client";
 
 import { createContext, useState } from "react";
-import { auth, db } from "../_firebase/firebaseConfig";
+import { auth, db, getCurrentUser } from "../_firebase/firebaseConfig";
 import { User } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { TAuthContextProps, TUser } from "../_types/types";
+import { useRouter, usePathname } from "next/navigation";
 
 const defaultValue: TAuthContextProps = {
     user: null,
@@ -18,6 +19,17 @@ export function AuthProvider({
     children: React.ReactNode;
 }): JSX.Element | null {
     const [user, setUser] = useState<User | null>(null);
+
+    const router = useRouter();
+    const pathname = usePathname();
+
+    if (pathname.includes("/me") || pathname.includes("/mytickets")) {
+        getCurrentUser().then((user) => {
+            if (!user) {
+                router.push("/");
+            }
+        });
+    }
 
     auth.onAuthStateChanged(async function (user) {
         if (user) {
