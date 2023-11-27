@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { auth } from "../firebase/firebaseConfig";
+import { auth } from "../_firebase/firebaseConfig";
 import { signOut as firebaseSignOut } from "firebase/auth";
 import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 

@@ -1,10 +1,10 @@
 "use client";
 
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { auth, provider } from "../firebase/firebaseConfig";
+import { auth, provider } from "../_firebase/firebaseConfig";
 import { signInWithPopup } from "@firebase/auth";
 import Image from "next/image";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../_hooks/useAuth";
 import { useState } from "react";
 import ProfileDropdown from "./ProfileDropdown";
 

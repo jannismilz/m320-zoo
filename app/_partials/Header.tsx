@@ -1,5 +1,5 @@
-import Logo from "../components/Logo";
-import ProfileLink from "../components/ProfileLink";
+import Logo from "../_components/Logo";
+import ProfileLink from "../_components/ProfileLink";
 
 export default function Header() {
     return (

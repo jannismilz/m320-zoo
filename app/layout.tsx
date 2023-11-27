@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./partials/Header";
-import Navigation from "./partials/Navigation";
-import { AuthProvider } from "./contexts/AuthContext";
+import Header from "./_partials/Header";
+import Navigation from "./_partials/Navigation";
+import { AuthProvider } from "./_contexts/AuthContext";
 
 export const metadata: Metadata = {
     title: "Create Next App",
