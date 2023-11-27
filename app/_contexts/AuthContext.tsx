@@ -33,7 +33,15 @@ export function AuthProvider({
             };
 
             if (userDoc.exists()) {
-                setDoc(doc(db, "users", user.uid), userDataObj, { merge: true });
+                const currDate = new Date();
+
+                // Only update updated_at at most every 5 minutes
+                if (
+                    userDoc.data()!.updated_at <
+                    currDate.setMinutes(currDate.getMinutes() - 5)
+                ) {
+                    setDoc(doc(db, "users", user.uid), userDataObj, { merge: true });
+                }
             } else {
                 userDataObj["created_at"] = Date.now();
                 setDoc(doc(db, "users", user.uid), userDataObj, { merge: true });
