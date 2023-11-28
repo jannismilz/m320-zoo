@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useAuth } from "../_hooks/useAuth";
 import { useState } from "react";
 import ProfileDropdown from "./ProfileDropdown";
+import getAvatarImage from "../_helpers/getAvatarImage";
 
 export default function ProfileLink() {
     const { user } = useAuth();
@@ -22,7 +23,7 @@ export default function ProfileLink() {
             >
                 <Image
                     className="rounded-full"
-                    src={user.photoURL} // TODO: Default profile picture
+                    src={getAvatarImage(user)}
                     width={32}
                     height={32}
                     alt="Profile image"
