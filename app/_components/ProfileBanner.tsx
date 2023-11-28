@@ -20,7 +20,7 @@ export default function ProfileBanner({ user, userDoc }: { user: User; userDoc: 
     }
 
     return (
-        <div className="flex gap-4">
+        <div className="m-auto flex max-w-4xl flex-col items-center gap-4 bg-gray-500 md:flex-row">
             <Image
                 className="rounded-full"
                 src={getAvatarImage(user, "192")}
@@ -29,8 +29,8 @@ export default function ProfileBanner({ user, userDoc }: { user: User; userDoc: 
                 alt="Profile image"
             />
             <div className="p-4">
-                <h1 className="text-5xl">{user.displayName}</h1>
-                <p className="text-lg">{user.email}</p>
+                <h1 className="text-center text-5xl md:text-left">{user.displayName}</h1>
+                <p className="text-center text-lg md:text-left">{user.email}</p>
                 <p className="text-lg">
                     Joined at: {unixConvertToDateTimeString(userDoc.created_at!)}
                 </p>
