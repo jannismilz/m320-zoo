@@ -32,6 +32,7 @@ export default function ProfileDropdown({
             className={`${
                 isOpen ? "block" : "hidden"
             } absolute right-0 top-full mt-1 flex w-52 flex-col bg-yellow-400`}
+            onClick={() => setIsOpen(false)}
         >
             <Link className="w-full px-5 py-1.5 text-start hover:bg-gray-400" href="/me">
                 Profile
