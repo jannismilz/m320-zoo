@@ -30,10 +30,11 @@ export default function Tickets() {
 
     async function handlePurchase() {
         const ticketData: TTicket = {
-            date,
+            date: +new Date(date),
             kidsAmount: kidTickets,
             adultsAmount: adultTickets,
             type: ticketType,
+            created_at: +new Date(),
         };
 
         if (useLoggedInUser) {
