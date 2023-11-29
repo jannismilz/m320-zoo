@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { collection, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCXD3F6UhSms32TpZJyU7KT8NlBuUmYQZY",
@@ -33,6 +33,8 @@ provider.setCustomParameters({ prompt: "select_account" });
 
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
+const usersCollection = collection(db, "users");
+const ticketsCollection = collection(db, "tickets");
 
-export { auth, provider, db };
+export { auth, provider, db, usersCollection, ticketsCollection };
 export default app;
