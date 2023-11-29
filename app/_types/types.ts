@@ -11,3 +11,19 @@ export type TUser = {
     updated_at: number;
     created_at?: number;
 };
+
+export type TTicket = {
+    date: string;
+    kidsAmount: number;
+    adultsAmount: number;
+    type: ETicketType;
+    userId?: string;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+};
+
+export enum ETicketType {
+    DAYPASS = 1,
+    HALFDAYPASS = 2,
+}
