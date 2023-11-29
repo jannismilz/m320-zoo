@@ -13,7 +13,7 @@ export type TUser = {
 };
 
 export type TTicket = {
-    date: string;
+    date: number;
     kidsAmount: number;
     adultsAmount: number;
     type: ETicketType;
@@ -21,6 +21,11 @@ export type TTicket = {
     firstName?: string;
     lastName?: string;
     email?: string;
+    created_at: number;
+};
+
+export type TFirestoreTicket = TTicket & {
+    id: string;
 };
 
 export enum ETicketType {
