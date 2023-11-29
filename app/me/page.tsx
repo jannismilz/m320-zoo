@@ -6,6 +6,7 @@ import { TUser } from "../_types/types";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../_firebase/firebaseConfig";
 import ProfileBanner from "../_components/ProfileBanner";
+import MyOpenTickets from "../_components/MyOpenTickets";
 
 export default function Me() {
     const { user } = useAuth();
@@ -24,6 +25,7 @@ export default function Me() {
         userDoc && (
             <main>
                 <ProfileBanner user={user} userDoc={userDoc} />
+                <MyOpenTickets user={user} />
             </main>
         )
     );
