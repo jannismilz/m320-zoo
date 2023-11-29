@@ -3,11 +3,13 @@
 import { db } from "@/app/_firebase/firebaseConfig";
 import { TTicket } from "@/app/_types/types";
 import { doc, getDoc } from "firebase/firestore";
+import { useQRCode } from "next-qrcode";
 import { useEffect, useState } from "react";
 
 export default function Ticket({ params }: { params: { ticketId: string } }) {
     const { ticketId } = params;
     const [ticketDoc, setTicketDoc] = useState<TTicket | null>(null);
+    const { Image } = useQRCode();
 
     useEffect(() => {
         getDoc(doc(db, "tickets", ticketId)).then((data) =>
@@ -18,6 +20,17 @@ export default function Ticket({ params }: { params: { ticketId: string } }) {
     return (
         <div>
             <h1>Ticket #{ticketId}</h1>
+            <Image
+                text={ticketId}
+                options={{
+                    type: "image/jpeg",
+                    quality: 0.3,
+                    errorCorrectionLevel: "M",
+                    margin: 3,
+                    scale: 4,
+                    width: 200,
+                }}
+            />
             <ul>
                 <li>
                     User:{" "}
