@@ -3,6 +3,7 @@ import { QuerySnapshot, and, getDocs, or, query, where } from "firebase/firestor
 import { useEffect, useState } from "react";
 import { ticketsCollection } from "../_firebase/firebaseConfig";
 import { TFirestoreTicket } from "../_types/types";
+import MyOpenTicketsEntry from "./MyOpenTicketsEntry";
 
 export default function MyOpenTickets({ user }: { user: User }) {
     const [tickets, setTickets] = useState<TFirestoreTicket[] | []>([]);
@@ -33,13 +34,7 @@ export default function MyOpenTickets({ user }: { user: User }) {
             <h1>My Open Tickets</h1>
             <ul>
                 {tickets.map((ticket) => {
-                    return (
-                        <li key={ticket.id}>
-                            {ticket.id} |{" "}
-                            {new Date(ticket.date).toLocaleDateString("de-De")} |{" "}
-                            {ticket.kidsAmount} | {ticket.adultsAmount}
-                        </li>
-                    );
+                    return <MyOpenTicketsEntry ticket={ticket} />;
                 })}
             </ul>
         </section>
