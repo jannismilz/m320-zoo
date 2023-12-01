@@ -1,5 +1,5 @@
 import { User, signOut } from "firebase/auth";
-import { deleteDoc, doc, getDoc, getDocs, query, where } from "firebase/firestore";
+import { deleteDoc, doc, getDocs, query, where } from "firebase/firestore";
 import { auth, ticketsCollection, usersCollection } from "../_firebase/firebaseConfig";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
