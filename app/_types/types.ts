@@ -26,7 +26,7 @@ export type TFirestoreTicket = TTicket & {
 };
 
 export type TAdmin = {
-    promoted_by: string;
+    promoted_by: string | null;
     promoted_at: number;
 };
 
