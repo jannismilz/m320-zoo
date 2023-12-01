@@ -28,7 +28,7 @@ export default function ProfileLink() {
                     height={32}
                     alt="Profile image"
                 />
-                <span className="hidden md:inline-block">{user.display_name}</span>
+                <span className="hidden md:inline-block">{user.displayName}</span>
                 <ChevronDownIcon height={15} width={15} />
             </div>
             <div className="relative">

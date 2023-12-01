@@ -4,10 +4,7 @@ export type TAuthContextProps = {
     user: User | null;
 };
 
-export type TUser = {
-    display_name: string | null;
-    email: string | null;
-    photo_url: string | null;
+export type TUser = User & {
     updated_at: number;
     created_at?: number;
 };
