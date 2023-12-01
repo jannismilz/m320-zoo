@@ -19,11 +19,8 @@ export default function MyOpenTickets({ user }: { user: User }) {
                 )
             )
         ).then((data) => {
-            let ticketObjects: TFirestoreTicket[] = [];
-            data.forEach((doc) => {
-                const tempDataObj = { id: doc.id, ...doc.data() } as TFirestoreTicket;
-
-                ticketObjects.push(tempDataObj);
+            const ticketObjects = data.docs.map((doc) => {
+                return { id: doc.id, ...doc.data() } as TFirestoreTicket;
             });
             setTickets(ticketObjects as TFirestoreTicket[]);
         });
