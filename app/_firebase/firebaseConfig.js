@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
-import { collection, getFirestore } from "firebase/firestore";
+import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCXD3F6UhSms32TpZJyU7KT8NlBuUmYQZY",
@@ -28,6 +28,20 @@ export const getCurrentUser = () => {
     });
 };
 
+export const isUserAdmin = () => {
+    return new Promise((resolve, reject) => {
+        if (auth.currentUser) {
+            getDoc(doc(db, "admins", auth.currentUser.uid)).then((doc) => {
+                if (doc.exists()) {
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            });
+        }
+    });
+};
+
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 
@@ -35,6 +49,7 @@ provider.setCustomParameters({ prompt: "select_account" });
 const db = getFirestore(app);
 const usersCollection = collection(db, "users");
 const ticketsCollection = collection(db, "tickets");
+const adminsCollection = collection(db, "admins");
 
 export { auth, provider, db, usersCollection, ticketsCollection };
 export default app;

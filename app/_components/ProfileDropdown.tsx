@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { auth } from "../_firebase/firebaseConfig";
+import { auth, isUserAdmin } from "../_firebase/firebaseConfig";
 import { signOut as firebaseSignOut } from "firebase/auth";
-import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 
 export default function ProfileDropdown({
     isOpen,
@@ -12,6 +12,8 @@ export default function ProfileDropdown({
     isOpen: boolean;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) {
+    const [isAdmin, setIsAdmin] = useState(false);
+
     const signOut = async () => await firebaseSignOut(auth);
     const dropdown = useRef(null);
 
@@ -25,6 +27,10 @@ export default function ProfileDropdown({
         window.addEventListener("mousedown", handleClick);
         return () => window.removeEventListener("mousedown", handleClick);
     }, [isOpen]);
+
+    useEffect(() => {
+        isUserAdmin().then((res) => setIsAdmin(res));
+    }, []);
 
     return (
         <div
@@ -43,6 +49,24 @@ export default function ProfileDropdown({
             >
                 My tickets
             </Link>
+            {isAdmin && (
+                <div className="flex flex-col">
+                    <hr />
+                    <Link
+                        className="w-full px-5 py-1.5 text-start hover:bg-gray-400"
+                        href="/admin"
+                    >
+                        Admin
+                    </Link>
+                    <Link
+                        className="w-full px-5 py-1.5 text-start hover:bg-gray-400"
+                        href="/"
+                    >
+                        Ticket QR Scanner
+                    </Link>
+                </div>
+            )}
+            <hr />
             <button
                 className="w-full px-5 py-1.5 text-start hover:bg-gray-400"
                 onClick={() => signOut()}

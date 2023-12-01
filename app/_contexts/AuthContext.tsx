@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useState } from "react";
-import { auth, db, getCurrentUser } from "../_firebase/firebaseConfig";
+import { auth, db, isUserAdmin } from "../_firebase/firebaseConfig";
 import { User } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { TAuthContextProps, TUser } from "../_types/types";
@@ -23,9 +23,21 @@ export function AuthProvider({
     const router = useRouter();
     const pathname = usePathname();
 
-    if (pathname.includes("/me") || pathname.includes("/mytickets")) {
-        getCurrentUser().then((user) => {
+    const authRoutes = ["/me"];
+    const adminRoutes = ["/admin"];
+
+    // Check if pathname startsWith every route defined in authRoutes
+    if (authRoutes.some((route) => pathname.startsWith(route))) {
+        auth.onAuthStateChanged(async function (user) {
             if (!user) {
+                router.push("/");
+            }
+        });
+    }
+
+    if (adminRoutes.some((route) => pathname.startsWith(route))) {
+        auth.onAuthStateChanged(async function (user) {
+            if (!user || !(await isUserAdmin())) {
                 router.push("/");
             }
         });
