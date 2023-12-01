@@ -6,8 +6,8 @@ import TicketAmountSelector from "../_components/TicketAmountSelector";
 import TicketTypeSelector from "../_components/TicketTypeSelector";
 import Input from "../_components/Input";
 import { useAuth } from "../_hooks/useAuth";
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
-import { db } from "../_firebase/firebaseConfig";
+import { addDoc } from "firebase/firestore";
+import { ticketsCollection } from "../_firebase/firebaseConfig";
 import TicketDateSelector from "../_components/TicketDateSelector";
 import { useRouter } from "next/navigation";
 
@@ -45,7 +45,7 @@ export default function Tickets() {
             ticketData.email = email;
         }
 
-        const ticketDoc = await addDoc(collection(db, "tickets"), ticketData);
+        const ticketDoc = await addDoc(ticketsCollection, ticketData);
         router.push(`/tickets/${ticketDoc.id}`);
     }
 
