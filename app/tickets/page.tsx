@@ -74,11 +74,13 @@ export default function Tickets() {
             </button>
             <div className={`${next ? "block" : "hidden"} flex flex-col`}>
                 <hr />
-                <button onClick={() => setUseLoggedInUser(!useLoggedInUser)}>
-                    {useLoggedInUser
-                        ? "Using logged in. Click to enter information manually"
-                        : "Use logged in user"}
-                </button>
+                {user && (
+                    <button onClick={() => setUseLoggedInUser(!useLoggedInUser)}>
+                        {useLoggedInUser
+                            ? "Using logged in. Click to enter information manually"
+                            : "Use logged in user"}
+                    </button>
+                )}
                 <div className={`${useLoggedInUser ? "hidden" : "block"} flex flex-col`}>
                     <Input
                         name="firstname"
