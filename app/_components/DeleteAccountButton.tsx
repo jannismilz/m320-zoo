@@ -13,7 +13,7 @@ export default function DeleteAccountButton({ user }: { user: User }) {
         await signOut(auth);
         await deleteDoc(doc(usersCollection, user?.uid));
 
-        getDocs(query(ticketsCollection, where("userId", "==", user?.uid))).then(
+        getDocs(query(ticketsCollection, where("user_id", "==", user?.uid))).then(
             (ticketsDocs) =>
                 ticketsDocs.forEach(
                     async (ticketDoc) =>

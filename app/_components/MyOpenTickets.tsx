@@ -14,7 +14,10 @@ export default function MyOpenTickets({ user }: { user: User }) {
             query(
                 ticketsCollection,
                 and(
-                    or(where("userId", "==", user.uid), where("email", "==", user.email)),
+                    or(
+                        where("user_id", "==", user.uid),
+                        where("email", "==", user.email)
+                    ),
                     where("date", ">", +new Date() - dayInMilliseconds)
                 )
             )

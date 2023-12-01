@@ -29,7 +29,7 @@ export default function ProfileBanner({ user, userDoc }: { user: User; userDoc: 
                 alt="Profile image"
             />
             <div className="p-4">
-                <h1 className="text-center text-5xl md:text-left">{user.displayName}</h1>
+                <h1 className="text-center text-5xl md:text-left">{user.display_name}</h1>
                 <p className="text-center text-lg md:text-left">{user.email}</p>
                 <p className="text-lg">
                     Joined at: {unixConvertToDateTimeString(userDoc.created_at!)}

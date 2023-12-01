@@ -34,16 +34,16 @@ export default function Ticket({ params }: { params: { ticketId: string } }) {
             <ul>
                 <li>
                     User:{" "}
-                    {ticketDoc?.userId || <em>Manually entered contact informations</em>}
+                    {ticketDoc?.user_id || <em>Manually entered contact informations</em>}
                 </li>
                 <hr />
-                <li>Firstname: {ticketDoc?.firstName}</li>
-                <li>Lastname: {ticketDoc?.lastName}</li>
+                <li>firstname: {ticketDoc?.firstname}</li>
+                <li>lastname: {ticketDoc?.lastname}</li>
                 <li>Email: {ticketDoc?.email}</li>
                 <hr />
                 <li>Date: {ticketDoc?.date}</li>
-                <li>Kids: {ticketDoc?.kidsAmount}</li>
-                <li>Adults: {ticketDoc?.adultsAmount}</li>
+                <li>Kids: {ticketDoc?.kids_amount}</li>
+                <li>Adults: {ticketDoc?.adults_amount}</li>
                 <li>Type: {ticketDoc?.type}</li>
             </ul>
         </div>

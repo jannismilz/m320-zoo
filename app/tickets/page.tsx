@@ -22,8 +22,8 @@ export default function Tickets() {
     const [next, setNext] = useState(false);
 
     const [useLoggedInUser, setUseLoggedInUser] = useState(false);
-    const [firstname, setFirstname] = useState("");
-    const [lastname, setLastname] = useState("");
+    const [firstname, setfirstname] = useState("");
+    const [lastname, setlastname] = useState("");
     const [email, setEmail] = useState("");
 
     // TODO: Add purchase email
@@ -31,17 +31,17 @@ export default function Tickets() {
     async function handlePurchase() {
         const ticketData: TTicket = {
             date: +new Date(date),
-            kidsAmount: kidTickets,
-            adultsAmount: adultTickets,
+            kids_amount: kidTickets,
+            adults_amount: adultTickets,
             type: ticketType,
             created_at: +new Date(),
         };
 
         if (useLoggedInUser) {
-            ticketData.userId = user?.uid;
+            ticketData.user_id = user?.uid;
         } else {
-            ticketData.firstName = firstname;
-            ticketData.lastName = lastname;
+            ticketData.firstname = firstname;
+            ticketData.lastname = lastname;
             ticketData.email = email;
         }
 
@@ -78,16 +78,16 @@ export default function Tickets() {
                 </button>
                 <div className={`${useLoggedInUser ? "hidden" : "block"} flex flex-col`}>
                     <Input
-                        name="Firstname"
+                        name="firstname"
                         state={firstname}
-                        setState={setFirstname}
-                        placeholder="Firstname"
+                        setState={setfirstname}
+                        placeholder="firstname"
                     />
                     <Input
-                        name="Lastname"
+                        name="lastname"
                         state={lastname}
-                        setState={setLastname}
-                        placeholder="Lastname"
+                        setState={setlastname}
+                        placeholder="lastname"
                     />
                     <Input
                         name="Email"

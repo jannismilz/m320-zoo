@@ -5,8 +5,8 @@ export default function TicketEntry({ ticket }: { ticket: TFirestoreTicket }) {
         <tr>
             <td>{ticket.id}</td>
             <td>{new Date(ticket.date).toLocaleDateString("de-De")}</td>
-            <td>{ticket.adultsAmount}</td>
-            <td>{ticket.kidsAmount}</td>
+            <td>{ticket.adults_amount}</td>
+            <td>{ticket.kids_amount}</td>
             <td>-</td>
         </tr>
     );

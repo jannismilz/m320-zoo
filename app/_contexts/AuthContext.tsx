@@ -49,9 +49,9 @@ export function AuthProvider({
             const userDoc = await getDoc(doc(db, "users", user.uid));
 
             const userDataObj: TUser = {
-                displayName: user.displayName,
+                display_name: user.display_name,
                 email: user.email,
-                photoURL: user.photoURL,
+                photo_url: user.photo_url,
                 updated_at: Date.now(),
             };
 
