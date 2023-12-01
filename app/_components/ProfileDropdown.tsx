@@ -66,7 +66,7 @@ export default function ProfileDropdown({
                     </Link>
                     <Link
                         className="w-full px-5 py-1.5 text-start hover:bg-gray-400"
-                        href="/"
+                        href="/admin/qr"
                     >
                         Ticket QR Scanner
                     </Link>
