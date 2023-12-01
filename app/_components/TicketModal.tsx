@@ -35,9 +35,11 @@ export default function TicketModal({
                         <ModalBody>
                             <ul>
                                 <li>
-                                    {ticket.date > +new Date() - dayInMilliseconds
-                                        ? "VALID"
-                                        : "EXPIRED"}
+                                    {ticket.status === "paid"
+                                        ? ticket.date > +new Date() - dayInMilliseconds
+                                            ? "VALID"
+                                            : "EXPIRED"
+                                        : "REFUNDED"}
                                 </li>
                                 <li>
                                     {new Date(ticket.date).toLocaleDateString("de-De")}
