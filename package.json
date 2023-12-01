@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@nextui-org/react": "^2.2.9",
     "firebase": "^10.6.0",
+    "framer-motion": "^10.16.9",
     "next": "14.0.3",
     "next-qrcode": "^2.5.1",
     "react": "^18",

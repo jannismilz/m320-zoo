@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./_partials/Header";
 import Navigation from "./_partials/Navigation";
-import { AuthProvider } from "./_contexts/AuthContext";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -13,11 +13,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <body>
-                <AuthProvider>
+                <Providers>
                     <Header />
                     <div className="my-16 p-4">{children}</div>
                     <Navigation />
-                </AuthProvider>
+                </Providers>
             </body>
         </html>
     );
