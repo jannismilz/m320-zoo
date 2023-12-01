@@ -5,6 +5,8 @@ export type TAuthContextProps = {
 };
 
 export type TUser = User & {
+    id?: string;
+    is_admin?: boolean;
     updated_at: number;
     created_at?: number;
 };

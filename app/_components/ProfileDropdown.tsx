@@ -56,7 +56,13 @@ export default function ProfileDropdown({
                         className="w-full px-5 py-1.5 text-start hover:bg-gray-400"
                         href="/admin"
                     >
-                        Admin
+                        Users
+                    </Link>
+                    <Link
+                        className="w-full px-5 py-1.5 text-start hover:bg-gray-400"
+                        href="/"
+                    >
+                        Animals
                     </Link>
                     <Link
                         className="w-full px-5 py-1.5 text-start hover:bg-gray-400"

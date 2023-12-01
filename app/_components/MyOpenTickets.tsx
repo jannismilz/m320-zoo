@@ -25,7 +25,7 @@ export default function MyOpenTickets({ user }: { user: User }) {
             const ticketObjects = data.docs.map((doc) => {
                 return { id: doc.id, ...doc.data() } as TFirestoreTicket;
             });
-            setTickets(ticketObjects as TFirestoreTicket[]);
+            setTickets(ticketObjects);
         });
     }, []);
 

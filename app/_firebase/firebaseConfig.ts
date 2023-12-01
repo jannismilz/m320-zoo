@@ -67,5 +67,5 @@ baseAdminEmails.forEach((email) => {
     });
 });
 
-export { auth, provider, db, usersCollection, ticketsCollection };
+export { auth, provider, db, usersCollection, ticketsCollection, adminsCollection };
 export default app;

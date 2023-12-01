@@ -30,7 +30,7 @@ export default function Me() {
             <h1 className="text-3xl font-bold">My tickets</h1>
             <hr className="my-4" />
             <table className="w-full">
-                <tr>
+                <tr className="text-left">
                     <th>ID</th>
                     <th>Date</th>
                     <th>Adults amount</th>
