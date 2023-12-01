@@ -32,11 +32,6 @@ export default function Ticket({ params }: { params: { ticketId: string } }) {
                 }}
             />
             <ul>
-                <li>
-                    User:{" "}
-                    {ticketDoc?.user_id || <em>Manually entered contact informations</em>}
-                </li>
-                <hr />
                 <li>firstname: {ticketDoc?.firstname}</li>
                 <li>lastname: {ticketDoc?.lastname}</li>
                 <li>Email: {ticketDoc?.email}</li>

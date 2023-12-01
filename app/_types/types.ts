@@ -16,10 +16,10 @@ export type TTicket = {
     kids_amount: number;
     adults_amount: number;
     type: ETicketType;
-    user_id?: string;
     firstname?: string;
     lastname?: string;
     email?: string;
+    status: "paid" | "refunded";
     created_at: number;
 };
 

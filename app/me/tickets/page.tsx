@@ -14,7 +14,7 @@ export default function Me() {
 
     useEffect(() => {
         if (user) {
-            getDocs(query(ticketsCollection, where("user_id", "==", user.uid))).then(
+            getDocs(query(ticketsCollection, where("email", "==", user.email))).then(
                 (tickets) => {
                     const ticketsData = tickets.docs.map((ticket) => {
                         return { id: ticket.id, ...ticket.data() } as TFirestoreTicket;

@@ -34,6 +34,7 @@ export default function Tickets() {
             kids_amount: kidTickets,
             adults_amount: adultTickets,
             type: ticketType,
+            status: "paid",
             created_at: +new Date(),
         };
 
