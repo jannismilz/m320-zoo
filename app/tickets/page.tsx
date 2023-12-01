@@ -38,7 +38,9 @@ export default function Tickets() {
         };
 
         if (useLoggedInUser) {
-            ticketData.user_id = user?.uid;
+            ticketData.firstname = user?.displayName?.split(" ")[0];
+            ticketData.lastname = user?.displayName?.split(" ")[1];
+            ticketData.email = user?.email || "";
         } else {
             ticketData.firstname = firstname;
             ticketData.lastname = lastname;
