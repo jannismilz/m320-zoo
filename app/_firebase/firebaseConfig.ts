@@ -38,7 +38,7 @@ const usersCollection = collection(db, "users");
 const ticketsCollection = collection(db, "tickets");
 const adminsCollection = collection(db, "admins");
 
-export const isUserAdmin = () => {
+export const isUserAdmin = (): Promise<boolean> => {
     return new Promise((resolve, reject) => {
         if (auth.currentUser) {
             getDoc(doc(db, "admins", auth.currentUser.email || "")).then((user) => {
