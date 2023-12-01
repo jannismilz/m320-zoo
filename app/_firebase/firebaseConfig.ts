@@ -41,7 +41,7 @@ const adminsCollection = collection(db, "admins");
 export const isUserAdmin = () => {
     return new Promise((resolve, reject) => {
         if (auth.currentUser) {
-            getDoc(doc(db, "admins", auth.currentUser.uid)).then((user) => {
+            getDoc(doc(db, "admins", auth.currentUser.email || "")).then((user) => {
                 if (user.exists()) {
                     resolve(true);
                 } else {
