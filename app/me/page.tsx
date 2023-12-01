@@ -7,6 +7,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../_firebase/firebaseConfig";
 import ProfileBanner from "../_components/ProfileBanner";
 import MyOpenTickets from "../_components/MyOpenTickets";
+import DeleteAccountButton from "../_components/DeleteAccountButton";
 
 export default function Me() {
     const { user } = useAuth();
@@ -26,6 +27,7 @@ export default function Me() {
             <main>
                 <ProfileBanner user={user} userDoc={userDoc} />
                 <MyOpenTickets user={user} />
+                <DeleteAccountButton user={user} />
             </main>
         )
     );
