@@ -6,7 +6,6 @@ export default function MyOpenTicketsEntry({ ticket }: { ticket: TFirestoreTicke
         <li key={ticket.id}>
             {ticket.id} | {new Date(ticket.date).toLocaleDateString("de-De")} |{" "}
             {ticket.kids_amount} | {ticket.adults_amount} |{" "}
-            <RefundTicketButton ticket={ticket} />
         </li>
     );
 }

@@ -54,19 +54,7 @@ export default function ProfileDropdown({
                     <hr />
                     <Link
                         className="w-full px-5 py-1.5 text-start hover:bg-gray-400"
-                        href="/admin"
-                    >
-                        Users
-                    </Link>
-                    <Link
-                        className="w-full px-5 py-1.5 text-start hover:bg-gray-400"
-                        href="/"
-                    >
-                        Animals
-                    </Link>
-                    <Link
-                        className="w-full px-5 py-1.5 text-start hover:bg-gray-400"
-                        href="/admin/qr"
+                        href="/admin/"
                     >
                         Ticket QR Scanner
                     </Link>

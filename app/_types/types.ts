@@ -19,7 +19,6 @@ export type TTicket = {
     firstname?: string;
     lastname?: string;
     email?: string;
-    status: "paid" | "refunded";
     created_at: number;
 };
 
